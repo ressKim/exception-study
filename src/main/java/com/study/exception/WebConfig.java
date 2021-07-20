@@ -3,6 +3,7 @@ package com.study.exception;
 import com.study.exception.filter.LogFilter;
 import com.study.exception.interceptor.LogInterceptor;
 import com.study.exception.resolver.MyHandlerExceptionResolver;
+import com.study.exception.resolver.UserHandlerExceptionResolver;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +30,9 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
         resolvers.add(new MyHandlerExceptionResolver());
+        resolvers.add(new UserHandlerExceptionResolver());
     }
+
 
     //    @Bean
     public FilterRegistrationBean logFilter() {

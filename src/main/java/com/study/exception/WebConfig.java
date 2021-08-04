@@ -27,6 +27,11 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/css/**", "*.ico", "/error", "/error-page/**");//오류 페이지 경로
     }
 
+    /**
+     * extendHandlerExceptionResolvers 말고도
+     * configureHandlerExceptionResolver 가 있는데 이거는 스프링이 기본으로 등록하는
+     * ExceptionResolver 가 사라지므로 주의하자 - (extendHandlerExceptionResolvers 쓰자)
+     */
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
         resolvers.add(new MyHandlerExceptionResolver());

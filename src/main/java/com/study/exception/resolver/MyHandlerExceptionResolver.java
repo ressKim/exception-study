@@ -45,7 +45,9 @@ public class MyHandlerExceptionResolver implements HandlerExceptionResolver {
             log.error("resolver ex", e);
         }
 
-        //
+        //null 로 return 하면 예외가 그냥 날라간다 안날아가게 하려면 딴 ModelAndView 로 위에처럼 없애고 딴걸로 덮어야 된다.
+        //여러 개 HandlerExceptionResolver 를 적용했는데 전부 다 null 로 처리되면 예외가 사라지고 지정했던 응답이 가는게 아닌,
+        // WAS 까지 원래 Exception 이 그냥 다 날아가게 된다.
         return null;
     }
 }
